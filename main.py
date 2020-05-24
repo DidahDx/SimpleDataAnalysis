@@ -156,6 +156,7 @@ def draw_life_expectancy(life, bmi_men):
 
             # plt.plot(years,y_values)
             # plt.show()
+            print("{} \n {}".format(years, y_values))
 
             validInput = False
         except:
@@ -175,10 +176,10 @@ def draw_chart(life, bmi_all):
             countries1 = [x.lower() for x in countries]
             years1 = [int(x) for x in years]
 
-            country = str(input('Enter the country to visualize life expectancy data\n'))
+            country = str(input('Enter the country to visualize life expectancy data and BMI world average\n'))
             values = countries1.index(country.lower())
             y_values = [float(x) for x in life[values]]
-            y_values2 = [float(x) for x in bmi_all[country.capitalize()]]
+            y_values2 = [round(float(x), 2) for x in list(bmi_all[country.capitalize()].values())]
 
             # used to plot the graph
             # use variable years1 for x-axis
@@ -187,7 +188,7 @@ def draw_chart(life, bmi_all):
             # plt.plot(years1,y_values)
             # plt.plot(years1,y_values2)
             # plt.show()
-
+            print("{} \n {}\n{}".format(years1, y_values2, y_values))
             validInput = False
         except:
             print('invalid input. Try again\n')
